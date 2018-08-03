@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>dog_app</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>dog_app</title><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/CAA2EB3D-0086-6141-86D1-BD85D485B677/main.js" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -13108,6 +13108,20 @@ test_{network} = bottleneck_features['test']</code></pre>
 </code></pre>
 <p><strong>Question 5:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  Describe why you think the architecture is suitable for the current problem.</p>
 <p><strong>Answer:</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>In this project, the goal is to classify dog breeds. Since dog breeds are a subset of the classes in the ImageNet dataset, most of the neural network is retained and only the end of the neural network needs to be redefined to classify the lesser number of classes.</li>
+<li>To redefine the end of the neural network, a new sequential model is first defined.</li>
+<li>To that sequential model, a global average pooling layer is first added. The global average pooling layer has as its input, the output of the dataset transformed by the pretrained Xception neural network. As such, the input shape for the global average pooling layer is equal to the tensor produced by the pretrained Xception neural network. The global average pooling layer then takes the average of each feature map and flattens the tensor into a vector.</li>
+<li>A fully connected layer that has 133 outputs is then added to the sequential model. The fully connected layer takes the vector produced by the global average pooling layer and classifies it according to the 133 dog breeds. A softmax activation is applied so that the output produces the probability of each of the 133 classes.</li>
+</ul>
 
 </div>
 </div>
